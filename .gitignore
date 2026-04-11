@@ -1,0 +1,68 @@
+# Build directories
+build/
+.cache/
+obj/
+lib/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+
+# Build artifacts
+*.o
+*.obj
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.lo
+*.la
+*.d
+
+# Profile directories and reports
+profile/
+profiles/
+*.ncu-rep
+*.nsys-rep
+*.qdrep
+*.qdstrm
+*.sqlite
+*.perf.data
+*.perf.data.old
+*.accelprof.log
+Backtrace.[0-9]*
+
+# Compiled benchmark executables (tracked by path since they have no extension)
+Optimized/LULESH/cuda/src/lulesh
+Optimized/XSBench/cuda/XSBench
+Optimized/rodinia/cuda/bfs/bfs
+Optimized/rodinia/cuda/backprop/backprop
+Optimized/rodinia/cuda/particlefilter/particlefilter_naive
+Optimized/rodinia/cuda/particlefilter/particlefilter_float
+Optimized/rodinia/cuda/hotspot/hotspot
+
+# LULESH runtime output artifacts
+Optimized/LULESH/cuda/src/amr_diag.out
+Optimized/LULESH/cuda/src/grid_diag.out
+Optimized/LULESH/cuda/src/species_diag.out
+Optimized/LULESH/cuda/src/xyz.asc
+
+# Large model weights (keep small ggml-vocab-*.gguf test fixtures)
+**/models/*.gguf
+!**/models/ggml-vocab-*.gguf
+*.safetensors
+*.bin.index.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+*.swp

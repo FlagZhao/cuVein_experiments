@@ -1,0 +1,8 @@
+kernel_name,mangled_name,grid_size,block_size,invocations,cycles_speedup_avg,mem_instr_reduce_pct_avg,l1_to_l2_traffic_reduce_pct_avg,l2_to_dram_rd_traffic_reduce_pct_avg
+"extract(long, float *)",_Z7extractlPf,"(450,1,1)","(512,1,1)",1,1.0068061740073369,0.0,0.0,0.0
+"prepare(long, float *, float *, float *)",_Z7preparelPfS_S_,"(450,1,1)","(512,1,1)",100,1.0184452509998492,0.0,0.00046360463756473896,0.06965043280366291
+"reduce(long, int, int, float *, float *)",_Z6reduceliiPfS_,"(450,1,1)","(512,1,1)",100,1.3439256386361271,89.33058774256578,0.0,0.8865239907544477
+"reduce(long, int, int, float *, float *)",_Z6reduceliiPfS_,"(1,1,1)","(512,1,1)",100,3.8900453688248238,91.03260869565207,5.252100840336138,9.18527503212752
+"srad(float, int, int, long, int *, int *, int *, int *, float *, float *, float *, float *, float, float *, float *)",_Z4sradfiilPiS_S_S_PfS0_S0_S0_fS0_S0_,"(450,1,1)","(512,1,1)",100,1.000850039342389,0.0,4.736616675475893e-05,-0.561991252201896
+"srad2(float, int, int, long, int *, int *, int *, int *, float *, float *, float *, float *, float *, float *)",_Z5srad2fiilPiS_S_S_PfS0_S0_S0_S0_S0_,"(450,1,1)","(512,1,1)",100,0.9968987793597583,0.0,0.027962067451973483,0.08125021508322787
+"compress(long, float *)",_Z8compresslPf,"(450,1,1)","(512,1,1)",1,1.017221024970971,0.0,0.0,-5.950069348127601

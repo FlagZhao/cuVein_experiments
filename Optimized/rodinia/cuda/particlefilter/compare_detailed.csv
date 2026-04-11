@@ -1,0 +1,5 @@
+kernel_name,mangled_name,grid_size,block_size,invocations,cycles_speedup_avg,mem_instr_reduce_pct_avg,l1_to_l2_traffic_reduce_pct_avg,l2_to_dram_rd_traffic_reduce_pct_avg
+"likelihood_kernel(double *, double *, double *, double *, double *, int *, int *, double *, unsigned char *, double *, double *, int, int, int, int, int, int, int *, double *)",_Z17likelihood_kernelPdS_S_S_S_PiS0_S_PhS_S_iiiiiiS0_S_,"(2,1,1)","(512,1,1)",9,1.020594184914887,29.25518925518926,3.6269197832396873,-17.3793271923807
+"sum_kernel(double *, int)",_Z10sum_kernelPdi,"(2,1,1)","(512,1,1)",9,1.002417571418047,0.0,0.0,-127.08759958145353
+"normalize_weights_kernel(double *, int, double *, double *, double *, int *)",_Z24normalize_weights_kernelPdiS_S_S_Pi,"(2,1,1)","(512,1,1)",9,1.0036115015817286,0.0,0.0,-610.4450349372155
+"find_index_kernel(double *, double *, double *, double *, double *, double *, double *, int)",_Z17find_index_kernelPdS_S_S_S_S_S_i,"(2,1,1)","(512,1,1)",9,0.9581555228904259,-18.455721398042275,1.0939078111142004,-2510.7269891776323

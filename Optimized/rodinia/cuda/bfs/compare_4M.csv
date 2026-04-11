@@ -1,0 +1,3 @@
+kernel_name,mangled_name,grid_size,block_size,invocations,cycles_speedup_avg,mem_instr_reduce_pct_avg,l1_to_l2_traffic_reduce_pct_avg,l2_to_dram_rd_traffic_reduce_pct_avg
+"Kernel(Node *, int *, bool *, bool *, bool *, int *, int)",_Z6KernelP4NodePiPbS2_S2_S1_i,"(8192,1,1)","(512,1,1)",13,1.0679367210459267,7.032665849430876,1.638108820470348,-0.39849323984658763
+"Kernel2(bool *, bool *, bool *, bool *, int)",_Z7Kernel2PbS_S_S_i,"(8192,1,1)","(512,1,1)",13,0.9972350314206347,0.0,-0.018332131893508317,1.5865877654786007
