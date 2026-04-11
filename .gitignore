@@ -32,6 +32,7 @@ profiles/
 *.perf.data.old
 *.accelprof.log
 Backtrace.[0-9]*
+dependency_*/
 
 # Compiled benchmark executables (tracked by path since they have no extension)
 Optimized/LULESH/cuda/src/lulesh
