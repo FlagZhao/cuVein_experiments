@@ -4,8 +4,9 @@ MPICH_DIR = /home/yzhao62/opt/gvprof/GVProf/gvprof/spack/opt/spack/linux-ubuntu2
 
 MPI_FLAGS =
 
-# NVCC		= nvcc -ccbin /usr/bin/cc
-NVCC		= nvcc -ccbin /usr/bin/gcc
+CUDA_DIR ?= /usr/local/cuda
+# NVCC		= $(CUDA_DIR)/bin/nvcc -ccbin /usr/bin/cc
+NVCC		= $(CUDA_DIR)/bin/nvcc -ccbin /usr/bin/gcc
 
 FLAGS		= -arch=sm_89 -lineinfo
 DFLAGS	= $(MPI_FLAGS) -lineinfo

@@ -38,7 +38,7 @@
 # Add new SM Versions here as devices with new Compute Capability are released
 SM_VERSIONS := sm_89
 
-CUDA_INSTALL_PATH ?= /usr/local/cuda-13.0
+CUDA_INSTALL_PATH ?= /usr/local/cuda
 
 ifdef cuda-install
 	CUDA_INSTALL_PATH := $(cuda-install)

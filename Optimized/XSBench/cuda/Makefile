@@ -7,6 +7,7 @@ OPTIMIZE    = yes
 DEBUG       = no
 PROFILE     = no
 SM_VERSION  = 89
+CUDA_DIR   ?= /usr/local/cuda
 
 #===============================================================================
 # Program name & source code list
@@ -36,7 +37,7 @@ LDFLAGS = -lm
 
 # NVIDIA Compiler
 ifeq ($(COMPILER),nvidia)
-  CC = nvcc
+  CC = $(CUDA_DIR)/bin/nvcc
   CFLAGS += -Xcompiler -Wall -Xcompiler -O3 -arch=sm_$(SM_VERSION) -std=c++17 -lineinfo
 endif
 
