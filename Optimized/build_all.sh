@@ -80,35 +80,6 @@ run_build "rodinia/cuda/hotspot" \
     make -C "$SCRIPT_DIR/rodinia/cuda/hotspot" release \
          KERNEL_DIM="${RODINIA_ARCH}"
 
-# particlefilter: arch is hardcoded; override by passing CFLAGS-style via
-# the CC variable wrapper so nvcc picks up the correct arch.
-# The Makefile invokes $(CC) directly with explicit -arch sm_89 literals,
-# so we wrap nvcc with a small override script.
-PFILTER_DIR="$SCRIPT_DIR/rodinia/cuda/particlefilter"
-WRAPPER="$PFILTER_DIR/.nvcc_wrapper_$$.sh"
-cat > "$WRAPPER" <<WRAP
-#!/usr/bin/env bash
-# Temporary nvcc wrapper: replaces any -arch sm_XX with target arch
-args=()
-skip_next=false
-for arg in "\$@"; do
-    if \$skip_next; then
-        skip_next=false
-        continue
-    fi
-    case "\$arg" in
-        -arch) args+=("-arch" "sm_${SM}"); skip_next=true ;;
-        -arch=sm_*) args+=("-arch=sm_${SM}") ;;
-        sm_[0-9]*) ;;  # positional arch value already consumed above
-        *) args+=("\$arg") ;;
-    esac
-done
-exec "${CUDA_DIR}/bin/nvcc" "\${args[@]}"
-WRAP
-chmod +x "$WRAPPER"
-run_build "rodinia/cuda/particlefilter" \
-    make -C "$PFILTER_DIR" CC="$WRAPPER"
-rm -f "$WRAPPER"
 
 # srad_v1: arch is hardcoded as a literal in the makefile rule AND the rule
 # calls `nvcc` directly (not $(CC)), so we shadow nvcc on PATH with a wrapper.
