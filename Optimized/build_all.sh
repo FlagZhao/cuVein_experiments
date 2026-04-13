@@ -108,11 +108,22 @@ run_build "rodinia/cuda/srad_v1" \
     env PATH="$SRAD1_TMPBIN:$PATH" make -C "$SRAD1_DIR"
 rm -rf "$SRAD1_TMPBIN"
 
-# srad_v2: top-level Makefile delegates with bare `make` (not $(MAKE)),
-# so command-line variables don't propagate automatically. Build directly.
-run_build "rodinia/cuda/srad_v2" \
-    make -C "$SCRIPT_DIR/rodinia/cuda/srad/srad_v2" release \
-         KERNEL_DIM="${RODINIA_ARCH}"
+# ---------------------------------------------------------------------------
+# pasta  (CMake + CUDA, CUDA_ARCH_BIN variable)
+# ---------------------------------------------------------------------------
+PASTA_SRC="$SCRIPT_DIR/pasta"
+PASTA_BUILD="$PASTA_SRC/build"
+run_build "pasta" bash -c "
+    cmake -S '$PASTA_SRC' -B '$PASTA_BUILD' \
+        -DUSE_ICC=OFF \
+        -DCMAKE_C_COMPILER=gcc \
+        -DCMAKE_CXX_COMPILER=g++ \
+        -DUSE_OPENMP=ON \
+        -DUSE_CUDA=ON \
+        -DCUDA_ARCH_BIN='$SM' \
+        -DCUDA_rt_LIBRARY=/usr/lib/x86_64-linux-gnu/librt.so.1 \
+        && cmake --build '$PASTA_BUILD' --parallel \$(nproc)
+"
 
 # ---------------------------------------------------------------------------
 # llama.cpp  (CMake + CUDA, GGML_CUDA=ON)
