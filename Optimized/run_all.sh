@@ -44,7 +44,7 @@ add_app "rodinia/hotspot"           "${OPT}/rodinia/cuda/hotspot"           "./h
 add_app "rodinia/srad_v1"           "${OPT}/rodinia/cuda/srad/srad_v1"      "./srad"                 "100 0.5 502 458"
 add_app "pasta/mttkrp"              "${OPT}/pasta/build/benchmarks"         "./mttkrp_gpu"           "-i ${OPT}/pasta/tensors/chicago.tns -o ${OPT}/pasta/build/benchmarks/temp_out -m 3 -d 0 -r 4 -p 15"
 add_app "pasta/ttm_hicoo"           "${OPT}/pasta/build/benchmarks"         "./ttm_hicoo_gpu"        "-i ${OPT}/pasta/tensors/trivago-clicks-4.tns -p 15 -d 0"
-add_app "LULESH"                    "${OPT}/LULESH/cuda/src"                "./lulesh"               "-s 100"
+add_app "LULESH"                    "${OPT}/LULESH/cuda/src"                "./lulesh"               "-s 100 1 1"
 add_app "XSBench"                   "${OPT}/XSBench/cuda"                   "./XSBench"              "-s large -m event -l 1700000"
 add_app "llama.cpp/soft_max"        "${OPT}/llama.cpp/build/bin"            "./test-backend-ops"     "test -o SOFT_MAX"      "CUDA_VISIBLE_DEVICES=0"
 add_app "llama.cpp/rms_norm"        "${OPT}/llama.cpp/build/bin"            "./test-backend-ops"     "test -o RMS_NORM"      "CUDA_VISIBLE_DEVICES=0"
